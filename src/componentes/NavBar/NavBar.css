@@ -2,3 +2,16 @@
     width: 350px;
     height: 150px;
 }
+
+.navbar-link {
+    text-decoration: none;
+    margin-right: 10px;
+    color: #000000;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.navbar-link:hover {
+    color: #ff0000;
+}
