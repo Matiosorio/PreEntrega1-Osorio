@@ -1,4 +1,5 @@
 .cardProducto {
+    width: 300px;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 7px;
@@ -6,7 +7,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     margin: 0.5rem;
+}
+
+.info {
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+    width: 100%; 
 }
 
 .card-img {
@@ -14,4 +24,14 @@
     height: 200px;
     object-fit: contain;
     margin-top: 1rem;
+}
+
+.boton-detalle {
+    margin: 10px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    background-color: #c82333;
 }

@@ -1,5 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .card-detalle {
-    width: 18rem;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 7px;
@@ -8,6 +13,7 @@
     flex-direction: column;
     align-items: center;
     margin: 0.5rem;
+    text-align: center;
 }
 
 .card-img {
