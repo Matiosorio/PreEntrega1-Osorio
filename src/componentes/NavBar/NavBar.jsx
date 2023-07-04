@@ -10,7 +10,7 @@ const NavBar = () => {
     <Navbar bg="light" variant="light" style={{ borderBottom: '1px solid black' }}>
       <Container>
         <Link to="/">
-          <Navbar.Brand><img src="./img/logo.png" alt="Logo Distrimax" className="logo-img" /></Navbar.Brand>
+          <Navbar.Brand><img src="../img/logo.png" alt="Logo Distrimax" className="logo-img" /></Navbar.Brand>
         </Link>
 
         <Nav className="me-auto">
