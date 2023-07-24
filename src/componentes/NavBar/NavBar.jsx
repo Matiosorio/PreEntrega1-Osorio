@@ -24,8 +24,8 @@ const NavBar = () => {
             <NavLink to="/categoria/5" className="navbar-link"> Papeles </NavLink>
             <NavLink to="/categoria/6" className="navbar-link"> Lavado </NavLink>
           </Nav>
-          <CartWidget />
         </Navbar.Collapse>
+        <CartWidget />
       </Container>
     </Navbar>
   )

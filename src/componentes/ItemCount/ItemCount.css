@@ -9,6 +9,10 @@
     padding: 5px 10px;
     border-radius: 40px;
     cursor: pointer;
-    background-color: #c82333;
+    background-color: #0197bc;
     color: white;
+}
+
+.contador-boton:hover {
+    background-color: grey;
 }

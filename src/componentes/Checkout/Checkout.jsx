@@ -197,6 +197,7 @@ const Checkout = () => {
                         </div>
                     ))
                 }
+                <strong>Cantidad Total: {cantidadTotal} </strong>
                 <hr />
 
                 <div className="form-group">

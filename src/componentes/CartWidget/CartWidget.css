@@ -1,0 +1,13 @@
+.link-cart {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+strong {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+  }

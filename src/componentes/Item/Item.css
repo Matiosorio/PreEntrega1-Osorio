@@ -33,5 +33,9 @@
     border-radius: 40px;
     cursor: pointer;
     color: white;
-    background-color: #c82333;
+    background-color: #0197bc;
 }
+
+.boton-detalle:hover {
+    background-color: grey;
+  }

@@ -27,7 +27,12 @@ const ItemDetail = ({ id, nombre, precio, img, stock, detalle }) => {
         <h3>Stock disponible: {stock} </h3>
         <p> {detalle} </p>
         <img src={img} alt={nombre} className="card-img" />
-        {actualizarCantidad > 0 ? (<Link to="/cart"> Terminar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)}
+        {actualizarCantidad > 0 ? (
+          <>
+            <Link to='/cart'>Terminar compra</Link>
+            <Link to='/'>Seguir comprando</Link>
+          </>
+        )  : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)}
       </div>
     </div>
 

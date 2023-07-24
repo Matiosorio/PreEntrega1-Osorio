@@ -2,8 +2,11 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 
+// "AIzaSyDOfhx4SBPl-KIxy18A9jaHf9RsuEdFoiU"
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDOfhx4SBPl-KIxy18A9jaHf9RsuEdFoiU",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "tpfinal-react2023.firebaseapp.com",
   projectId: "tpfinal-react2023",
   storageBucket: "tpfinal-react2023.appspot.com",
