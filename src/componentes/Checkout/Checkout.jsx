@@ -114,6 +114,7 @@ import { useState, useContext } from "react"
 import { CarritoContext } from "../../context/CarritoContext"
 import { db } from "../../services/config"
 import { collection, addDoc, updateDoc, doc, getDoc, documentId } from "firebase/firestore"
+import './Checkout.css'
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
@@ -185,14 +186,14 @@ const Checkout = () => {
 
 
     return (
-        <div>
+        <div className="container">
             <h2>Checkout</h2>
             <form onSubmit={manejadorFormulario}>
                 {
                     carrito.map(producto => (
                         <div key={producto.item.id} >
                             <p> {producto.item.nombre} x {producto.cantidad} </p>
-                            <p> {producto.item.precio} </p>
+                            <p> $ {producto.item.precio} </p>
                             <hr />
                         </div>
                     ))
@@ -229,7 +230,7 @@ const Checkout = () => {
                     error && <p style={{ color: "red" }}> {error} </p>
                 }
 
-                <button type="submit"> Finalizar Compra </button>
+                <button className="boton-checkout" type="submit"> Finalizar Compra </button>
             </form>
             {
                 ordenId && (

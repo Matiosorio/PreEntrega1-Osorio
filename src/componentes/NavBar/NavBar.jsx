@@ -7,8 +7,9 @@ import './NavBar.css'
 
 const NavBar = () => {
   return (
+    <div className="navbar-container">
     <Navbar bg="light" variant="light" expand="lg" style={{ borderBottom: '1px solid black' }}>
-      <Container>
+      {/* <Container> */}
         <Link to="/">
           <Navbar.Brand><img src="../img/logo.png" alt="Logo Distrimax" className="logo-img" /></Navbar.Brand>
         </Link>
@@ -26,8 +27,9 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
         <CartWidget />
-      </Container>
+      {/* </Container> */}
     </Navbar>
+    </div>
   )
 }
 

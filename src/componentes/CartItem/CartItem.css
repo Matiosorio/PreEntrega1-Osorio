@@ -1,6 +1,16 @@
-.card-img {
+.img-carrito {
     width: 200px;
     height: 200px;
     object-fit: contain;
     margin-top: 1rem;
+}
+
+.boton-eliminar {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    background-color: #0197bc;
 }

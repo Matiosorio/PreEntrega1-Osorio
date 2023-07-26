@@ -6,6 +6,7 @@ import { CarritoProvider } from "./context/CarritoContext"
 import Cart from "./componentes/Cart/Cart"
 import Checkout from "./componentes/Checkout/Checkout"
 import Footer from "./componentes/Footer/Footer"
+import './index.css'
 
 const App = () => {
   return (

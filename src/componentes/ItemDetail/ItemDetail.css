@@ -22,3 +22,32 @@
     object-fit: contain;
     margin-top: 1rem;
 }
+
+/* .link-item {
+    margin: 10px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    background-color: #0197bc;
+    text-decoration: none;
+} */
+
+.links-container {
+    display: flex;
+    gap: 10px; /* Espaciado entre los enlaces */
+    justify-content: center;
+    margin-top: 20px; /* Espaciado superior */
+  }
+  
+  .link-item {
+    text-decoration: none;
+    background-color: #0197bc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 40px;
+  }
+  
+  .link-item:hover {
+    background-color: #016b87;
+  }

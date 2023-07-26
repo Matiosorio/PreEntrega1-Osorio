@@ -15,7 +15,7 @@ const ItemDetail = ({ id, nombre, precio, img, stock, detalle }) => {
     setActualizarCantidad(cantidad);
     //console.log("Productos agregados: " + cantidad);
     
-    const item = {id, nombre, precio};
+    const item = {id, nombre, precio, img};
     agregarProducto(item, cantidad);
   }
 
@@ -28,10 +28,10 @@ const ItemDetail = ({ id, nombre, precio, img, stock, detalle }) => {
         <p> {detalle} </p>
         <img src={img} alt={nombre} className="card-img" />
         {actualizarCantidad > 0 ? (
-          <>
-            <Link to='/cart'>Terminar compra</Link>
-            <Link to='/'>Seguir comprando</Link>
-          </>
+          <div className='links-container'>
+            <Link className='link-item' to='/cart'>Terminar compra</Link>
+            <Link className='link-item' to='/'>Seguir comprando</Link>
+            </div>
         )  : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)}
       </div>
     </div>
