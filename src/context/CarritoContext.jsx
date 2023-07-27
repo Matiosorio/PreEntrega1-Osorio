@@ -18,9 +18,6 @@ export const CarritoProvider = ({children}) => {
     const agregarProducto = (item, cantidad) => {
         const productoExistente = carrito.find(prod => prod.item.id === item.id);
 
-        console.log(item);
-
-
         if (!productoExistente) {
             setCarrito( prev => [...prev, { item, cantidad}]);
             setCantidadTotal(prev => prev + cantidad);

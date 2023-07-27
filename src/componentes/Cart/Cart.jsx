@@ -9,18 +9,18 @@ const Cart = () => {
 
     if (cantidadTotal === 0) {
         return (
-            <>
+            <div className="carrito-vacio">
                 <h2> No hay productos en el carrito </h2>
                 <Link to="/"> Ver Productos </Link>
-            </>
-        )
+            </div>
+        );
     }
 
     // Redondeo el total a 2 decimales
     const totalArreglado = total.toFixed(2);
 
     return (
-        <div>
+        <div className="carrito-container">
             {carrito.map((producto) => (
                 <CartItem key={producto.item.id} item={producto.item} cantidad={producto.cantidad} img={producto.item.img} />
             ))}
