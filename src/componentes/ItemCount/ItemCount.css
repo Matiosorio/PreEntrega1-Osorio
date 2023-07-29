@@ -1,13 +1,14 @@
 .contador-container {
     display: flex;
     align-items: center;
+    margin-top: 30px;
 }
 
 .contador-boton {
     margin: 10px;
     border: none;
     padding: 5px 10px;
-    border-radius: 40px;
+    border-radius: 10px;
     cursor: pointer;
     background-color: #0197bc;
     color: white;

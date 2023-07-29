@@ -3,11 +3,12 @@
     display: inline-block;
   }
 
-/* strong {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
-    color: white;
-    font-size: 18px;
-  } */
+
+  .link-cart strong {
+    margin-left: 5px; 
+    font-weight: bold;
+    background-color: #ffc107; 
+    color: white; 
+    padding: 3px 8px; 
+    border-radius: 50%; 
+  }

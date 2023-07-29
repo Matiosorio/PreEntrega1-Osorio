@@ -10,7 +10,7 @@ const CartItem = ({item, cantidad, img}) => {
     return (
         <tr>
           <td>
-            <div className="item-info">
+            <div className="item-info" style={{ display: 'flex', alignItems: 'flex-start' }}>
               <img src={img} className="img-carrito" alt={item.nombre} />
               {item.nombre}
             </div>

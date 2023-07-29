@@ -1,8 +1,8 @@
-import { useState, useContext } from "react"
-import { CarritoContext } from "../../context/CarritoContext"
-import { db } from "../../services/config"
-import { collection, addDoc, updateDoc, doc, getDoc, documentId } from "firebase/firestore"
-import './Checkout.css'
+import { useState, useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
+import { db } from "../../services/config";
+import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
+import './Checkout.css';
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
@@ -12,6 +12,7 @@ const Checkout = () => {
     const [emailConfirmación, setEmailConfirmacion] = useState("");
     const [error, setError] = useState("");
     const [ordenId, setOrdenId] = useState("");
+    const [mostrarAgradecimiento, setMostrarAgradecimiento] = useState(false);
 
     const { carrito, vaciarCarrito, total, cantidadTotal } = useContext(CarritoContext);
 
@@ -51,7 +52,7 @@ const Checkout = () => {
 
                 await updateDoc(productoRef, {
                     stock: stockActual - productoOrden.cantidad,
-                })
+                });
             })
         )
             .then(() => {
@@ -59,76 +60,74 @@ const Checkout = () => {
                     .then((docRef) => {
                         setOrdenId(docRef.id);
                         vaciarCarrito();
+                        setMostrarAgradecimiento(true);
                     })
                     .catch((error) => {
-                        console.log("Error al crear la orden", error)
-                        setError("Error al crear la orden. Vuelva a intentarlo")
+                        console.log("Error al crear la orden", error);
+                        setError("Error al crear la orden. Vuelva a intentarlo");
                     });
             })
             .catch((error) => {
                 console.log("No se puede actualizar el stock", error);
                 setError("No se puede actualizar el stock");
-            })
+            });
 
-    }
-
+    };
 
     return (
         <div className="container">
             <h2>Checkout</h2>
-            <form onSubmit={manejadorFormulario}>
-                {
-                    carrito.map(producto => (
-                        <div key={producto.item.id} >
-                            <p> {producto.item.nombre} x {producto.cantidad} </p>
-                            <p> $ {producto.item.precio} </p>
-                            <hr />
-                        </div>
-                    ))
-                }
-                <strong>Cantidad Total: {cantidadTotal} </strong>
-                <hr />
+            {mostrarAgradecimiento ? (
+                <strong>¡Gracias por tu compra! Tu número de orden es {ordenId} </strong>
+            ) : (
+                <form onSubmit={manejadorFormulario}>
+                    {
+                        carrito.map(producto => (
+                            <div key={producto.item.id} >
+                                <p> {producto.item.nombre} x {producto.cantidad} </p>
+                                <p> $ {producto.item.precio} </p>
+                                <hr />
+                            </div>
+                        ))
+                    }
+                    <strong>Cantidad Total: {cantidadTotal} </strong>
+                    <strong>Precio Total: $ {total.toFixed(2)} </strong>
+                    <hr />
 
-                <div className="form-group">
-                    <label htmlFor=""> Nombre </label>
-                    <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="nombre"> Nombre </label>
+                        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor=""> Apellido</label>
-                    <input type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="apellido"> Apellido</label>
+                        <input type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor=""> Telefono</label>
-                    <input type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="telefono"> Telefono</label>
+                        <input type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor=""> Email </label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="email"> Email </label>
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor=""> Email Confirmación </label>
-                    <input type="email" value={emailConfirmación} onChange={(e) => setEmailConfirmacion(e.target.value)} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="email"> Email Confirmación </label>
+                        <input type="email" value={emailConfirmación} onChange={(e) => setEmailConfirmacion(e.target.value)} />
+                    </div>
 
-                {
-                    error && <p style={{ color: "red" }}> {error} </p>
-                }
+                    {error && <p style={{ color: "red" }}> {error} </p>}
 
-                <div className="boton-container">
-                    <button className="boton-checkout" type="submit">Finalizar Compra</button>
-                </div>
-            </form>
-            {
-                ordenId && (
-                    <strong>¡Gracias por tu compra! Tu número de orden es {ordenId} </strong>
-                )
-            }
+                    <div className="boton-container">
+                        <button className="boton-checkout" type="submit">Finalizar Compra</button>
+                    </div>
+                </form>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Checkout
+export default Checkout;

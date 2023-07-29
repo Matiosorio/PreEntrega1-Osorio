@@ -23,21 +23,11 @@
     margin-top: 1rem;
 }
 
-/* .link-item {
-    margin: 10px;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    color: white;
-    background-color: #0197bc;
-    text-decoration: none;
-} */
-
 .links-container {
     display: flex;
-    gap: 10px; /* Espaciado entre los enlaces */
+    gap: 10px; 
     justify-content: center;
-    margin-top: 20px; /* Espaciado superior */
+    margin: 30px;
   }
   
   .link-item {

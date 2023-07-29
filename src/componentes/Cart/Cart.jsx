@@ -10,21 +10,19 @@ const Cart = () => {
     if (cantidadTotal === 0) {
         return (
             <div className="carrito-vacio">
-                <h2> No hay productos en el carrito </h2>
-                <Link to="/"> Ver Productos </Link>
+                <h2 style={{ fontSize: '20px' }}> No hay productos en el carrito </h2>
+                <Link to="/" className='link-carrito' style={{ marginTop: "20px" }}> Ver Productos </Link>
             </div>
         );
     }
 
-    // Redondeo el total a 2 decimales
-    const totalArreglado = total.toFixed(2);
-
+  
     return (
         <div className="carrito-container">
             <table className="cart-table">
         <thead>
           <tr>
-            <th>Producto</th>
+            <th style={{ textAlign: 'left' }}>Producto</th>
             <th>Precio</th>
             <th>Cantidad</th>
             <th></th>
@@ -36,10 +34,11 @@ const Cart = () => {
           ))}
         </tbody>
       </table>
-      <h3>Total: $ {total.toFixed(2)}</h3>
-      <h3>Cantidad total: {cantidadTotal}</h3>
+      <hr />
+      <h3 style={{ fontSize: '20px' }}>Total: $ {total.toFixed(2)}</h3>
+      <h3 style={{ fontSize: '20px' }}>Cantidad total: {cantidadTotal}</h3>
       <button className="boton-cart" onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
-      <Link className='link-finalizar' to="/checkout">Finalizar Compra</Link>
+      <Link className='link-carrito' to="/checkout">Finalizar Compra</Link>
     </div>
   );
 }
